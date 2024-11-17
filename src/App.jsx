@@ -20,24 +20,34 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Vans from './pages/Vans'
 import VanDetails from './pages/VanDetails'
+import Layout from './components/Layout'
+import Income from './pages/Income.jsx'
+import Dashboard from './pages/Dashboard'
+import Reviews from './pages/Reviews'
+import HostLayout from './components/HostLayout'
+import HostVans from './pages/HostVans'
+import HostVanDetails from './pages/HostVanDetails'
 
 
 function App() {
 
   return (
     <BrowserRouter>
-    <header className='header'>
-      <Link className='site-logo' to="/">#VanLife</Link>
-      <nav>
-        <Link to="/about">About</Link>
-        <Link to="/vans">Vans</Link>
-      </nav>
-      </header>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/vans" element={<Vans />} />
-        <Route path="/vans/:id" element={<VanDetails />} />
+        <Route element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="vans" element={<Vans />} />
+            <Route path="vans/:id" element={<VanDetails />} />
+
+          <Route path="host" element={<HostLayout />}> 
+            <Route index element={<Dashboard />} />  
+            <Route path="income" element={<Income />} />
+            <Route path="reviews" element={<Reviews />} />
+            <Route path="vans" element={<HostVans />} />
+            <Route path="vans/:id" element={<HostVanDetails />} />
+          </Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   )

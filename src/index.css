@@ -37,6 +37,12 @@ header {
   padding-block: 10px;
 }
 
+a.active-link {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #161616;
+}
+
 header .site-logo {
   color: black;
   margin-right: auto;
